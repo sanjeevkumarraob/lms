@@ -66,7 +66,8 @@ angular.module('starter', ['ionic'])
         url: "/about",
         views: {
           'about-tab': {
-            templateUrl: "about.html"
+            templateUrl: "about.html",
+            controller: "ContentCtrl"
           }
         }
       })
@@ -82,7 +83,8 @@ angular.module('starter', ['ionic'])
         url: "/contact",
         views: {
           'contact-tab': {
-            templateUrl: "contact.html"
+            templateUrl: "contact.html",
+            controller: "GlossaryCtrl"
           }
         }
       });
@@ -99,4 +101,100 @@ angular.module('starter', ['ionic'])
       $ionicSideMenuDelegate.toggleRight();
     };
   })
-  .controller('HomeTabCtrl', function($scope) {});
+  .controller('HomeTabCtrl', function($scope) {})
+  .controller('ContentCtrl', function($scope) {
+    $scope.contents = [{
+      "header": "Introduction to the Unit"
+    }, {
+      "header": "Unit Objectives"
+    }, {
+      "header": "Definition of key terms in ICT (1 of 3)"
+    }, {
+      "header": "Definition of key terms in ICT (2 of 3)"
+    }, {
+      "header": "Definition of key terms in ICT (3 of 3)"
+    }, {
+      "header": "Quiz"
+    }, {
+      "header": "Components of Computers (1 of 9)"
+    }, {
+      "header": "Components of Computers (2 of 9)"
+    }, {
+      "header": "Components of Computers (3 of 9)"
+    }, {
+      "header": "Components of Computers (4 of 9)"
+    }, {
+      "header": "Components of Computers (5 of 9)"
+    }, {
+      "header": "Components of Computers (6 of 9)"
+    }, {
+      "header": "Components of Computers (7 of 9)"
+    }, {
+      "header": "Components of Computers (8 of 9)"
+    }, {
+      "header": "Components of Computers (9 of 9)"
+    }, {
+      "header": "Quiz"
+    }, {
+      "header": "Computer Hardware and Software"
+    }, {
+      "header": "Applications of Computers (1 of 15)"
+    }, {
+      "header": "Applications of Computers (2 of 15)"
+    }, {
+      "header": "Applications of Computers (3 of 15)"
+    }, {
+      "header": "Applications of Computers (4 of 15)"
+    }, {
+      "header": "Applications of Computers (5 of 15)"
+    }, {
+      "header": "Applications of Computers (6 of 15)"
+    }, {
+      "header": "Applications of Computers (7 of 15)"
+    }, {
+      "header": "Applications of Computers (8 of 15)"
+    }, {
+      "header": "Applications of Computers (9 of 15)"
+    }, {
+      "header": "Applications of Computers (10 of 15)"
+    }, {
+      "header": "Applications of Computers (11 of 15)"
+    }, {
+      "header": "Applications of Computers (12 of 15)"
+    }, {
+      "header": "Applications of Computers (13 of 15)"
+    }, {
+      "header": "Applications of Computers (14 of 15)"
+    }, {
+      "header": "Applications of Computers (15 of 15)"
+    }, {
+      "header": "Quiz"
+    }, {
+      "header": "What Have You Learnt?"
+    }];
+  })
+  .controller('GlossaryCtrl', function($scope) {
+
+    $scope.glossaryterms = [{
+      "term": "CSW",
+      "definition": "Commercial Sex Workers"
+    }, {
+      "term": "GBV",
+      "definition": "Gender Based Violation"
+    }, {
+      "term": "USA",
+      "definition": "United States of America"
+    }, {
+      "term": "MOHs",
+      "definition": "Ministries of Health (Min Medical Services, Min Public Health and Sanitation)"
+    }, {
+      "term": "MOMS",
+      "definition": "Ministry of Medical Services "
+    }, {
+      "term": "USAID",
+      "definition": "United Stated Agency for International Development "
+    }, {
+      "term": "WHO",
+      "definition": "World Health Organisation "
+    }];
+  });

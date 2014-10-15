@@ -34,8 +34,8 @@
         </ion-nav-back-button>
       </ion-nav-bar>
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" ng-click="showMenu()">
-        </button>
+        <a class="button button-icon button-clear ion-home" href="#/tab/home">
+        </a>
       </ion-nav-buttons>
 
       <ion-nav-buttons side="right">
@@ -45,7 +45,7 @@
       <ion-nav-view animation="slide-left-right"></ion-nav-view>
     </ion-side-menu-content>
 
-    <ion-side-menu side="left">
+    <!-- <ion-side-menu side="left">
       <ion-header-bar class="bar bar-header bar-stable">
         <h1 class="title">Left Menu</h1>
       </ion-header-bar>
@@ -62,7 +62,7 @@
           </li>
         </ul>
       </ion-content>
-    </ion-side-menu>
+    </ion-side-menu> -->
 
     <ion-side-menu side="right">
       <ion-header-bar class="bar bar-header bar-stable">
@@ -71,10 +71,16 @@
       <ion-content>
         <ul class="list">
           <li>
-            <a class="item" menu-close nav-clear href="#/search">Search</a>
+            <a class="item item-icon-left item-icon-right" menu-close nav-clear href="#/search">
+              <i class="icon ion-ios7-person-outline"></i> My Profile
+              <i class="icon ion-person"></i>
+            </a>
           </li>
           <li>
-            <a class="item" menu-close nav-clear href="#/settings">Settings</a>
+            <a class="item item-icon-right" menu-close nav-clear href="#/settings">Logout
+              <i class="icon ion-log-out"></i>
+            </a>
+
           </li>
         </ul>
       </ion-content>
@@ -91,11 +97,11 @@
         <ion-nav-view name="home-tab"></ion-nav-view>
       </ion-tab>
 
-      <ion-tab title="About" icon="ion-ios7-information" href="#/tab/about">
+      <ion-tab title="Contents" icon="ion-ios7-paper" href="#/tab/about">
         <ion-nav-view name="about-tab"></ion-nav-view>
       </ion-tab>
 
-      <ion-tab title="Contact" icon="ion-ios7-world" ui-sref="tabs.contact">
+      <ion-tab title="Glossary" icon="ion-ios7-search" ui-sref="tabs.contact">
         <ion-nav-view name="contact-tab"></ion-nav-view>
       </ion-tab>
 
@@ -103,12 +109,132 @@
   </script>
 
   <script id="home.html" type="text/ng-template">
-    <ion-view title="Home">
-      <ion-content>
-        <p>Example of Ionic tabs. Navigate to each tab, and navigate to child views of each tab and notice how each tab has its own navigation history.</p>
-        <p>
-          <a class="button icon icon-right ion-chevron-right" href="#/tab/facts">Scientific Facts</a>
-        </p>
+    <ion-view title="Introduction to Computers">
+      <ion-content padding="true">
+        <ion-slide-box show-pager="false">
+          <ion-slide>
+            <h2>Introduction to the Unit </h2>
+            <p>
+              Welcome to unit one of fundamentals of ICT. In this unit, you will look at computer hardware and software components and application of computers in your day to day life. Computers have become an integral part of your life and society, their applications
+              ranging from business transactions to personal communications. However, while many people use computers for work and pleasure every day, few have a basic understanding of how computers work.
+            </p>
+            <p>
+              This unit presents a brief introduction to computers, focusing on what a computer is, how they are organised and what they can do. The knowledge gained from this unit, viz., Introduction to computers, should provide a framework for understanding the basic
+              computer concepts, as well as make you a better consumer of computer technology.
+            </p>
+            <p>
+              You will look at Windows basics (Here you will be talking about Windows 7) and also on how to work with files and folders in Windows 7 in the coming chapters. Windows is a personal computer operating system from Microsoft that, together with some commonly
+              used business applications such as Microsoft Word and Excel, has become a de facto ‘standard’ for individual users in most corporations as well as in most homes.
+            </p>
+          </ion-slide>
+          <ion-slide>
+            <h2>Unit Objectives </h2>
+            <p>
+              By the end of this unit you will be able to:
+              <ol padding="true">
+                <li>
+                  Define key terms in ICT.
+                </li>
+                <li>
+                  Identify key computer components and their functions.
+                </li>
+                <li>
+                  Describe computer software and hardware.
+                </li>
+                <li>
+                  Describe the application of computers in day-to-day life, HMIS systems as well as their benefits and challenges.
+                </li>
+              </ol>
+            </p>
+          </ion-slide>
+          <ion-slide>
+            <h2>Definition of key terms in ICT (1 of 3)</h2>
+            <br>
+            <h3>ICT</h3>
+            <p>
+              ICT is an acronym for Information, Communication Technology. ICT (information and communications technology or technologies) is an umbrella term that includes any communication device or application, encompassing: radio, television, cellular phones, computer
+              and network hardware and software, satellite systems and so on, as well as the various services and applications associated with them, such as videoconferencing and distance learning. ICTs are often spoken of in a particular context, such
+              as ICTs in education, health care, or libraries.
+
+
+            </p>
+            <h3>Basic ICT Skills</h3>
+            <p>
+              On any given day, you will encounter ICT systems in much of what you do, even if you don’t realise it. The materials you share using computers and mobile devices, phone calls you make, pictures you take using cameras, television channels you watch, the
+              radio stations that you listen to, the car that you drive in, and even the cash register that a local grocery store; are all controlled in the same way by computer systems. They help us perform tasks, keep track of information. During the
+              course of the class, your focus will be on ICTs in health care and education. You will also learn about how computers work, how they perform simple tasks and most of all, how they will support your eLearning and distance education programmes
+              that you have commenced.
+
+
+            </p>
+          </ion-slide>
+          <ion-slide>
+            <h2>
+
+Definition of key terms in ICT (2 of 3)
+
+</h2>
+            <h3>The Computer </h3>
+            <p>
+              In simple terms, a computer is an electronic machine capable of performing various arithmetic and logical operations. The computer is also capable of storing information, which can be used later. A computer can process millions of instructions in a few
+              seconds with high accuracy.
+            </p>
+            <p>
+              Hence a computer can be defined as an automatic electronic machine for performing calculations or controlling operations that are expressible in numerical or logical terms. Computers are very accurate and save time by performing the assigned task very
+              fast. Moreover, unlike human beings, they never get bored.
+            </p>
+          </ion-slide>
+          <ion-slide>
+            <h2>
+
+Definition of key terms in ICT (3 of 3)
+
+</h2>
+            <h3>What Makes a Computer Different from a Mechanical Calculator? </h3>
+            <p>
+              It is the ability to take instructions in the form of programs and execute them that distinguishes a computer from a mechanical calculator. While both are able to make computations, a calculator responds simply to immediate input. In fact, most modern
+              calculators are actually computers, with a number of pre-installed programs to help in complex tasks. However, a computer performs more functions, it can accept instructions and data, perform arithmetic and logical operations and produce
+              information. The data fed into the computer is converted into information through processing.
+            </p>
+            <p>
+              he first electronic computers were developed in the mid-20th century. These were very huge in size, say, the size of a large room. They also consumed as much power as several hundred modern personal computers (PCs). Modern computers based on integrated
+              circuits are billions of times more capable than the early machines, and occupy a fraction of the space.
+            </p>
+            <p>
+              The computer has completely changed the way you do your job or organisations operate their businesses. Together with this reason and many more, computers are considered more than just an essential piece of fancy equipment. Whether you know or not, you
+              are forced to use computers in your day to day lives, for doing bank transactions, learning purposes, doing online shopping and many more.
+            </p>
+          </ion-slide>
+          <ion-slide>
+            <div class="card">
+              A computer is an electronic machine capable of performing various arithmetic and logical operations. The computer is also capable of storing information, which can be used later.
+              <p class="assertive">
+                Indicate whether the above statement is true or false then click on the Submit Answer button.
+              </p>
+            </div>
+
+            <div class="list">
+
+              <label class="item item-radio">
+                <input type="radio" name="group">
+                <div class="item-content">
+                  True
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+
+              <label class="item item-radio">
+                <input type="radio" name="group">
+                <div class="item-content">
+                  False
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+
+            </div>
+
+          </ion-slide>
+        </ion-slide-box>
       </ion-content>
     </ion-view>
   </script>
@@ -151,12 +277,15 @@
   <script id="about.html" type="text/ng-template">
     <ion-view title="About">
       <ion-content>
-        <h3>Create hybrid mobile apps with the web technologies you love.</h3>
-        <p>Free and open source, Ionic offers a library of mobile-optimized HTML, CSS and JS components for building highly interactive apps.</p>
-        <p>Built with Sass and optimized for AngularJS.</p>
-        <p>
-          <a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">Tabs Nav Stack</a>
-        </p>
+        <ul class="list">
+          <li class="item item-divider">
+            Contents
+          </li>
+          <li class="item" ng-repeat="content in contents">
+            {{content.header}}
+          </li>
+        </ul>
+
       </ion-content>
     </ion-view>
   </script>
@@ -171,10 +300,24 @@
   </script>
 
   <script id="contact.html" type="text/ng-template">
-    <ion-view title="Contact">
+    <ion-view title="Glossary">
+      <div class="bar bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="icon ion-ios7-search placeholder-icon"></i>
+          <input type="search" placeholder="Search" ng-model="search">
+        </label>
+
+      </div>
       <ion-content>
-        <p>@IonicFramework</p>
-        <p>@DriftyCo</p>
+
+        <div class="card my-card" ng-repeat="glossaryitem in glossaryterms | filter:search">
+          <div class="item item-divider">
+            {{glossaryitem.term}}
+          </div>
+          <div class="item item-text-wrap">
+            {{glossaryitem.definition}}
+          </div>
+        </div>
       </ion-content>
     </ion-view>
   </script>
@@ -182,15 +325,88 @@
   <script id="settings.html" type="text/ng-template">
     <ion-view title="Settings">
       <ion-content>
-        Settings page
+        Logout page
       </ion-content>
     </ion-view>
   </script>
 
   <script id="search.html" type="text/ng-template">
-    <ion-view title="Search">
+    <ion-view title="My Profile">
       <ion-content>
-        Search page
+
+        <div class="card">
+
+          <div class="item item-avatar">
+            <img src="avatar.jpg">
+            <h2>John Doe</h2>
+            <p>Employee</p>
+          </div>
+
+          <div class="item item-text-wrap">
+            <div class="list">
+              <div class="item item-divider">
+                My Courses
+              </div>
+              <div class="item">
+                Introduction to Computers
+              </div>
+              <div class="item">
+                Introduction to Laptops
+              </div>
+              <div class="item">
+                Introduction to machines
+              </div>
+              <div class="item">
+                Introduction to Mobiles
+              </div>
+            </div>
+
+            <div class="list">
+              <div class="item item-divider">
+                Introduction to Computers - Status
+              </div>
+              <div class="item range range-positive">
+                0%
+                <input type="range" name="volume" min="0" max="100" value="33"> 100%
+              </div>
+            </div>
+
+            <div class="list">
+              <div class="item item-divider">
+                Introduction to Laptops - Status
+              </div>
+              <div class="item range range-balanced">
+                0%
+                <input type="range" name="volume" min="0" max="100" value="78"> 100%
+              </div>
+            </div>
+
+            <div class="list">
+              <div class="item item-divider">
+                Introduction to Machines - Status
+              </div>
+              <div class="item range range-assertive">
+                0%
+                <input type="range" name="volume" min="0" max="100" value="28"> 100%
+              </div>
+            </div>
+
+            <div class="list">
+              <div class="item item-divider">
+                Introduction to Mobiles - Status
+              </div>
+              <div class="item range range-energized">
+                0%
+                <input type="range" name="volume" min="0" max="100" value="68"> 100%
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+
       </ion-content>
     </ion-view>
   </script>
