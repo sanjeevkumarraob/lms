@@ -24,6 +24,15 @@ angular.module('starter', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
+      .state('default', {
+        url: '/default',
+        templateUrl: 'default.html'
+      })
+      .state('page', {
+        url: '/page/:pageIndex',
+        templateUrl: 'loading.html',
+        controller: 'PageCtrl'
+      })
       .state('search', {
         url: '/search',
         templateUrl: 'search.html'
@@ -90,7 +99,7 @@ angular.module('starter', ['ionic'])
       });
 
 
-    $urlRouterProvider.otherwise("/tab/home");
+    $urlRouterProvider.otherwise("/default");
 
   })
   .controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
@@ -101,8 +110,68 @@ angular.module('starter', ['ionic'])
       $ionicSideMenuDelegate.toggleRight();
     };
   })
-  .controller('HomeTabCtrl', function($scope) {})
-  .controller('ContentCtrl', function($scope) {
+  .controller('HomeTabCtrl', function($scope, $stateParams, $location) {
+
+  })
+  .controller('PageCtrl', function($scope, $stateParams, $location) {
+    if ($stateParams.pageIndex) {
+
+    }
+  })
+  .controller('HomeCtrl', function($scope, $ionicPopup, $ionicSlideBoxDelegate) {
+    $scope.hideHeader = "false";
+    var mylatesttap;
+    $scope.unit = {};
+    $scope.attempts = "100";
+
+    if (sessionStorage.getItem("pageIndex") !== null && sessionStorage.getItem("pageIndex") <= 5) {
+      $scope.pageIndex = sessionStorage.getItem("pageIndex");
+      $scope.activeSlide = $scope.pageIndex;
+      sessionStorage.setItem("pageIndex", null);
+    }
+
+    // An alert dialog
+    $scope.showAlert = function(message) {
+      var alertPopup = $ionicPopup.alert({
+        title: message.title,
+        template: message.body
+      });
+      alertPopup.then(function(res) {
+        console.log('Thank you for not eating my delicious ice cream cone');
+      });
+    };
+
+    $scope.doubletap = function() {
+      var now = new Date().getTime();
+      var timesince = now - mylatesttap;
+
+      if ((timesince < 600) && (timesince > 0)) {
+
+        // double tap
+        $scope.hideHeader = !$scope.hideHeader;
+
+      } else {
+        // too much time to be a doubletap
+      }
+
+      mylatesttap = new Date().getTime();
+    };
+
+    $scope.submit = function() {
+      var message = {};
+      if ($scope.unit.q1) {
+        message.title = "Correct!";
+        message.body = "That’s the correct answer. The statement is true. A computer is an electronic machine capable of performing various arithmetic and logical operations. The computer is also capable of storing information, which can be used later.";
+
+        $scope.showAlert(message);
+      } else {
+        message.title = "Wrong";
+        message.body = "That’s not the correct answer. The statement is true. A computer is an electronic machine capable of performing various arithmetic and logical operations. The computer is also capable of storing information, which can be used later.";
+        $scope.showAlert(message);
+      }
+    };
+  })
+  .controller('ContentCtrl', function($scope, $ionicTabsDelegate) {
     $scope.contents = [{
       "header": "Introduction to the Unit"
     }, {
@@ -172,6 +241,12 @@ angular.module('starter', ['ionic'])
     }, {
       "header": "What Have You Learnt?"
     }];
+
+    $scope.changePage = function(index) {
+      sessionStorage.setItem("pageIndex", index);
+      $ionicTabsDelegate.select(0);
+    };
+
   })
   .controller('GlossaryCtrl', function($scope) {
 

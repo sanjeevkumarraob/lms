@@ -14,8 +14,9 @@
     -->
 
   <!-- ionic/angularjs js -->
-  <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/angular-touch/angular-touch.min.js"></script>
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
 
@@ -29,19 +30,19 @@
   <ion-side-menus>
 
     <ion-side-menu-content ng-controller="NavCtrl">
-      <ion-nav-bar class="bar-stable">
+      <!-- <ion-nav-bar class="bar-stable">
         <ion-nav-back-button class="button-icon ion-left">
         </ion-nav-back-button>
-      </ion-nav-bar>
-      <ion-nav-buttons side="left">
+      </ion-nav-bar> -->
+      <!-- <ion-nav-buttons side="left">
         <a class="button button-icon button-clear ion-home" href="#/tab/home">
         </a>
-      </ion-nav-buttons>
+      </ion-nav-buttons> -->
 
-      <ion-nav-buttons side="right">
+      <!-- <ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-ios7-gear" ng-click="showRightMenu()">
         </button>
-      </ion-nav-buttons>
+      </ion-nav-buttons> -->
       <ion-nav-view animation="slide-left-right"></ion-nav-view>
     </ion-side-menu-content>
 
@@ -64,7 +65,7 @@
       </ion-content>
     </ion-side-menu> -->
 
-    <ion-side-menu side="right">
+    <!-- <ion-side-menu side="right">
       <ion-header-bar class="bar bar-header bar-stable">
         <h1 class="title">Settings</h1>
       </ion-header-bar>
@@ -84,11 +85,14 @@
           </li>
         </ul>
       </ion-content>
-    </ion-side-menu>
+    </ion-side-menu> -->
 
   </ion-side-menus>
 
-
+  <script id="default.html" type="text/ng-template">
+    <img src="img/home.png" class="full-image">
+    <a href="#/tab/home" nav-clear class="button button-block button-energized">Start Course</a>
+  </script>
 
   <script id="tabs.html" type="text/ng-template">
     <ion-tabs class="tabs-icon-top tabs-positive">
@@ -108,10 +112,15 @@
     </ion-tabs>
   </script>
 
+
+
   <script id="home.html" type="text/ng-template">
-    <ion-view title="Introduction to Computers">
-      <ion-content padding="true">
-        <ion-slide-box show-pager="false">
+    <ion-view ng-controller="HomeCtrl">
+      <ion-header-bar align-title="center" class="bar-dark" ng-hide="hideHeader">
+        <h1 class="title">Introduction to computers</h1>
+      </ion-header-bar>
+      <ion-content padding="true" ng-click="doubletap()">
+        <ion-slide-box show-pager="false" active-slide="activeSlide">
           <ion-slide>
             <h2>Introduction to the Unit </h2>
             <p>
@@ -212,26 +221,38 @@ Definition of key terms in ICT (3 of 3)
                 Indicate whether the above statement is true or false then click on the Submit Answer button.
               </p>
             </div>
+            <form ng-submit="submit()">
 
-            <div class="list">
 
-              <label class="item item-radio">
-                <input type="radio" name="group">
-                <div class="item-content">
-                  True
+              <div class="list list-inset" ng-disabled="checked">
+
+                <label class="item item-radio">
+                  <input type="radio" name="group" ng-model="unit.q1" value="true">
+                  <div class="item-content">
+                    True
+                  </div>
+                  <i class="radio-icon ion-checkmark"></i>
+                </label>
+
+                <label class="item item-radio">
+                  <input type="radio" name="group" ng-model="unit.q1" value="false">
+                  <div class="item-content">
+                    False
+                  </div>
+                  <i class="radio-icon ion-checkmark"></i>
+                </label>
+
+              </div>
+              <div class="row">
+                <div class="col col-75">
+                  <button class="button button-block button-positive" type="submit" ng-show="unit.q1">
+                    Submit Answer
+                  </button>
                 </div>
-                <i class="radio-icon ion-checkmark"></i>
-              </label>
+                <div class="col">Attempts. {{attempts}}</div>
+              </div>
+            </form>
 
-              <label class="item item-radio">
-                <input type="radio" name="group">
-                <div class="item-content">
-                  False
-                </div>
-                <i class="radio-icon ion-checkmark"></i>
-              </label>
-
-            </div>
 
           </ion-slide>
         </ion-slide-box>
@@ -275,21 +296,29 @@ Definition of key terms in ICT (3 of 3)
   </script>
 
   <script id="about.html" type="text/ng-template">
-    <ion-view title="About">
+    <ion-view title="Contents">
       <ion-content>
-        <ul class="list">
-          <li class="item item-divider">
+        <ion-list>
+          <ion-item class="item item-divider">
             Contents
-          </li>
-          <li class="item" ng-repeat="content in contents">
+          </ion-item>
+          <ion-item class="item" ng-repeat="content in contents" ng-click="changePage({{$index}})">
             {{content.header}}
-          </li>
-        </ul>
+          </ion-item>
+        </ion-list>
 
       </ion-content>
     </ion-view>
   </script>
 
+  <script id="loading.html" type="text/ng-template">
+    <ion-view>
+      <ion-content>
+
+        <h1>Loading....</h1>
+      </ion-content>
+    </ion-view>
+  </script>
   <script id="nav-stack.html" type="text/ng-template">
     <ion-view title="Tab Nav Stack">
       <ion-content>
@@ -301,7 +330,7 @@ Definition of key terms in ICT (3 of 3)
 
   <script id="contact.html" type="text/ng-template">
     <ion-view title="Glossary">
-      <div class="bar bar-subheader item-input-inset">
+      <div class="bar bar-header item-input-inset">
         <label class="item-input-wrapper">
           <i class="icon ion-ios7-search placeholder-icon"></i>
           <input type="search" placeholder="Search" ng-model="search">
